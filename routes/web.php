@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/pendaftaran', function () {
     return view('dashboard');
 });
-Route::get('/media', [MediaController::class, 'show']);
+Route::get('/', [MediaController::class, 'show']);
