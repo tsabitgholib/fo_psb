@@ -1,9 +1,76 @@
-<div class="fixed bottom-0 sm:max-w-md w-full">
-    <div class="w-full flex justify-between">
+<style>
+    .fixed {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35%;
+        /* Default untuk desktop */
+        text-align: center;
+        font-size: 0.875rem;
+        color: #888888;
+        padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .fixed {
+            width: 100%;
+            /* Menyesuaikan dengan lebar perangkat Android atau layar kecil */
+            left: 0;
+            right: 0;
+            transform: none;
+            /* Hilangkan translateX untuk memastikan elemen tetap berada di tengah layar */
+        }
+    }
+
+    /* Floating button styling */
+    .floating-button {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background-color: #f39c12;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .floating-button:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .floating-button svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+    }
+
+    /* Background shape */
+    .background-shape {
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        height: 80%;
+        background-color: #fff;
+        transform: translateX(-50%);
+        left: 50%;
+        width: 55%;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="fixed bottom-0">
+    <div class="relative grid h-24 w-full mx-auto grid-cols-2 gap-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
         <!-- Card 1 -->
-        <div class="bg-white z-40 w-5/12 rounded-tr-3xl p-4 flex flex-col items-center rounded-xl">
+        <div class="relative z-10 flex flex-col items-center justify-center rounded-l-lg rounded-r-[2rem] bg-white">
             <a href="/pendaftaran"
-                class="transition text-gray-600 hover:text-blue-900 active:-translate-y-1 active:underline underline-offset-4 flex flex-col items-center">
+                class="transition hover:text-blue-900 active:-translate-y-1 active:underline underline-offset-4 flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="h-10 w-10 mb-2" fill="currentColor">
                     <path
                         d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
@@ -13,9 +80,9 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-white z-40 w-5/12 rounded-tl-3xl p-4 flex flex-col items-center rounded-xl">
+        <div class="relative z-10 flex flex-col items-center justify-center rounded-l-[2rem] rounded-r-lg bg-white">
             <a href="https://wa.me/6289667011213"
-                class="transition text-gray-600 hover:text-blue-900 active:-translate-y-1 active:underline underline-offset-4 flex flex-col items-center">
+                class="transition hover:text-blue-900 active:-translate-y-1 active:underline underline-offset-4 flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2" fill="currentColor"
                     viewBox="0 0 448 512">
                     <path
@@ -27,9 +94,9 @@
     </div>
 
     <!-- Floating Button -->
-    <div class="absolute bottom-14 p-2 flex w-full justify-center z-40">
+    <div class="floating-button">
         <a href="/"
-            class="hover:text-blue-900 transition text-white duration-200 active:-translate-y-1 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-600 to-yellow-400 p-4">
+            class="hover:text-blue-900 transition text-white duration-200 active:-translate-y-1 flex items-center justify-center rounded-full w-full h-full bg-gradient-to-br from-yellow-600 to-yellow-400 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="currentColor" viewBox="0 0 576 512">
                 <path
                     d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
@@ -38,7 +105,7 @@
     </div>
 
     <!-- Background Shape -->
-    <div class="w-full h-20 rounded-t-[200%] absolute bottom-0 bg-white z-20"></div>
+    <div class="background-shape"></div>
 </div>
 
 <script src="https://cdn.tailwindcss.com"></script>
