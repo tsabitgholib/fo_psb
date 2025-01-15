@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-gray-100 flex justify-center items-start min-h-screen pt-4">
-    <div class="w-full sm:max-w-md bg-white shadow-md rounded-lg p-6 pb-28">
+    <div class="w-full sm:max-w-md bg-gray-50 shadow-md rounded-lg p-6 pb-28">
         <!-- Title -->
         <h2 class="text-xl font-bold text-center text-gray-800 mb-6">Form Pendaftaran</h2>
 
