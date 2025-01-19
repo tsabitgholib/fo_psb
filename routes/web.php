@@ -20,6 +20,12 @@ Route::get('/pendaftaran', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+Route::get('/formLengkap', function () {
+    return view('components/formLengkap');
+});
+Route::get('/berkas', function () {
+    return view('components/berkas');
+});
 Route::get('/jadwal', function () {
     return view('jadwal');
 });

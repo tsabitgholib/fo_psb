@@ -15,7 +15,47 @@
             <p class="text-gray-600">Lihat jadwal anda</p>
         </div>
         <!-- Header -->
-        <img src="https://via.placeholder.com/400x200" alt="Tabel Biaya" class="w-full h-auto rounded-lg shadow-md">
+        <div class="space-y-6 ">
+            <div class="bg-white border-2 p-4 shadow rounded-lg">
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Tanggal</p>
+                    <p>05 Jan 2025</p>
+                </div>
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Waktu</p>
+                    <p>08.00 - 09.30</p>
+                </div>
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Kegiatan</p>
+                    <p>Praktik reaksi kimia</p>
+                </div>
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Ruang</p>
+                    <p>Lab. Kimia</p>
+                </div>
+            </div>
+            <div class="bg-white border-2 p-4 shadow rounded-lg">
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Tanggal</p>
+                    <p>06 Jan 2025</p>
+                </div>
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Waktu</p>
+                    <p>10.00 - 11.30</p>
+                </div>
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Kegiatan</p>
+                    <p>Matematika</p>
+                </div>
+                <div class="flex justify-between items-center border-b py-2">
+                    <p class="font-semibold">Ruang</p>
+                    <p>222</p>
+                </div>
+            </div>
+
+
+            <!-- Tambahkan data siswa lainnya di sini -->
+        </div>
     </div>
     @include('components.navbar')
 
