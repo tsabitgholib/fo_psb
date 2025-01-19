@@ -79,7 +79,7 @@
                         class="h-12 w-12">
                     <div>
                         <h3 class="text-lg font-bold">Unggah Berkas</h3>
-                        <p class="text-sm text-green-200">Upload dokumen penting seperti akta kelahiran.</p>
+                        <p class="text-sm text-green-200">Upload dokumen pendukung.</p>
                     </div>
                 </a>
                 <!--  -->
@@ -104,7 +104,7 @@
                 <!-- -->
                 <div class="absolute right-4 top-4">
                     <div
-                        class="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
                         !
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                 <!--  -->
                 <div class="absolute right-4 top-4">
                     <div
-                    class="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                    class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
                     !
                 </div>
             </div>
@@ -134,7 +134,7 @@
                 <strong class="text-blue-500">Catatan:</strong> Pastikan semua data diisi dengan lengkap. Jika
                 ada
                 kendala,
-                hubungi kami melalui email atau nomor telepon yang tersedia di halaman kontak.
+                hubungi kami melalui nomor whatshapp yang tersedia.
             </p>
         </div>
         </div>

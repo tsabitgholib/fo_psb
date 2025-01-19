@@ -8,8 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
-    <div class="w-full sm:max-w-md bg-gray-50 shadow-xl rounded-lg overflow-hidden pb-40 p-4 sm:p-6 relative min-h-screen">
+<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center sm:p-6 ">
+    <div
+        class="w-full sm:max-w-md bg-gray-50 pb-48 shadow-xl rounded-lg overflow-hidden p-4 sm:p-6 relative min-h-screen">
         <!-- Header -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-bold text-blue-600">Pengajuan Biaya</h1>
@@ -29,7 +30,7 @@
         </div>
 
         <!-- Konten Reguler -->
-        <div id="content-reguler" class="hidden">
+        <div id="content-reguler" class="hidden pb-44">
             <p class="text-gray-600 text-center mb-4">
                 Berikut adalah tabel biaya untuk kategori reguler.
             </p>
@@ -66,14 +67,19 @@
 
             <!-- Form Wakaf -->
             <div class="my-6">
-                <label for="wakaf" class="block text-gray-700 font-semibold mb-2">Wakaf Perorangan</label>
+                <label for="wakaf" class="block text-gray-700 font-semibold mb-2">Swakelola biaya registrasi</label>
                 <input type="number" id="wakaf" placeholder="Masukkan nominal"
                     class="w-full p-2 outline-none shadow border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2">Biaya registrasi yang sudah dibayarkan tidak bisa kembali</p>
             </div>
 
             <!-- Form Bulanan -->
+            <div class="mb-6 flex justify-between">
+                <label class="block text-gray-700 font-semibold mb-2">Keringanan Registrasi</label>
+                <input type="checkbox" id="keringanan" class="p-2">
+            </div>
             <div class="mb-6">
-                <label for="bulanan" class="block text-gray-700 font-semibold mb-2">Bulanan (SPP/Infaq)</label>
+                <label for="bulanan" class="block text-gray-700 font-semibold mb-2">Swakelola biaya SPP</label>
                 <input type="number" id="bulanan" placeholder="Masukkan nominal bulanan"
                     class="w-full p-2 outline-none shadow border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
@@ -84,16 +90,26 @@
         </div>
 
         <!-- Konten Unggulan -->
-        <div id="content-unggulan" class="hidden">
-            <p class="text-gray-600 text-center mb-4">
-                Isi form biaya untuk kategori unggulan.
-            </p>
+        <div id="content-unggulan" class="hidden pb-44">
+            <div class="flex items-center justify-between bg-blue-200 rounded py-4 p-2">
+                <p class="text-gray-600 text-center font-semibold text-lg">
+                    Booking Vee Rp. 1.000.000
+                </p>
+                <button class="p-2 bg-green-500 rounded-lg text-white font-bold items-end">BOOKING</button>
+            </div>
 
             <!-- Form Wakaf -->
             <div class="mb-6">
                 <label for="wakaf" class="block text-gray-700 font-semibold mb-2">Wakaf Perorangan</label>
                 <input type="number" id="wakaf" placeholder="Masukkan nominal"
                     class="w-full p-2 outline-none border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2">Wakaf perorang merupakan wakaf periodik,
+                    jika nominal yang dimasukkan kurang dari nominal yang dianjurkan maka akan dinyatakan wakaf
+                    permanent melalui uang</p>
+                <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2"><span class="font-bold">Wakaf
+                        Periodik</span> adalah wakaf yang akan dikembalikan 100% setelah kelulusan/3 tahun</p>
+                <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2"><span class="font-bold">Wakaf
+                        Permanent</span> adalah wakaf yang tidak bisa dikembalikan</p>
             </div>
 
             <!-- Form Bulanan -->
@@ -109,40 +125,42 @@
                 Proses Pembayaran
             </button>
 
-           
+
         </div>
     </div>
-    @include('components.navbar')
     <!-- QRIS Modal -->
     <div id="qris-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
         <div class="bg-white rounded-lg p-6 w-80 text-center">
             <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
             <img src="{{ asset('assets/img/frame.png') }}" alt="QRIS Code"
                 class="mx-auto rounded-lg border border-gray-300">
-            <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pengajuan biaya reguler.</p>
-            <button id="close-modal"
+                <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pengajuan biaya reguler.</p>
+                <button id="close-modal"
                 class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
 
             <button id="cek-pembayaran" class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
                 pembayaran</button>
         </div>
     </div>
-    <div id="qris-modalUnggulan" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+    <div id="qris-modalUnggulan"
+        class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
         <div class="bg-white rounded-lg p-6 w-80 text-center">
             <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
             <img src="{{ asset('assets/img/frame.png') }}" alt="QRIS Code"
-                class="mx-auto rounded-lg border border-gray-300">
+            class="mx-auto rounded-lg border border-gray-300">
             <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pengajuan biaya unggulan.</p>
             <button id="close-modalUnggulan"
-                class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
-
-            <button id="cek-pembayaranUnggulan" class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
-                pembayaran</button>
+            class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
+            
+            <button id="cek-pembayaranUnggulan"
+            class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
+            pembayaran</button>
         </div>
     </div>
-
-
-
+    @include('components.navbar')
+    
+    
+    
     <script>
         // Script untuk mengatur logika tampilan
         const btnReguler = document.getElementById('btn-reguler');
@@ -157,7 +175,7 @@
         const closeModalUnggulan = document.getElementById('close-modalUnggulan');
         const cekPembayaran = document.getElementById('cek-pembayaran');
         const cekPembayaranUnggulan = document.getElementById('cek-pembayaranUnggulan');
-     
+
 
         btnReguler.addEventListener('click', () => {
             contentReguler.classList.remove('hidden');
@@ -185,12 +203,12 @@
         cekPembayaran.addEventListener('click', (event) => {
             event.preventDefault(); // Perbaiki kesalahan penulisan
             qrisPembayaran.classList.add('hidden'); // Menyembunyikan QRIS modal
-           
+
         });
         cekPembayaranUnggulan.addEventListener('click', (event) => {
             event.preventDefault(); // Perbaiki kesalahan penulisan
             qrisPembayaranUnggulan.classList.add('hidden'); // Menyembunyikan QRIS modal
-           
+
         });
     </script>
 </body>

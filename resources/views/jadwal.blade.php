@@ -27,11 +27,11 @@
                 </div>
                 <div class="flex justify-between items-center border-b py-2">
                     <p class="font-semibold">Kegiatan</p>
-                    <p>Praktik reaksi kimia</p>
+                    <p>Wawancara</p>
                 </div>
                 <div class="flex justify-between items-center border-b py-2">
                     <p class="font-semibold">Ruang</p>
-                    <p>Lab. Kimia</p>
+                    <p>Ruang Kepala Sekolah</p>
                 </div>
             </div>
             <div class="bg-white border-2 p-4 shadow rounded-lg">
@@ -45,11 +45,11 @@
                 </div>
                 <div class="flex justify-between items-center border-b py-2">
                     <p class="font-semibold">Kegiatan</p>
-                    <p>Matematika</p>
+                    <p>Tes</p>
                 </div>
                 <div class="flex justify-between items-center border-b py-2">
                     <p class="font-semibold">Ruang</p>
-                    <p>222</p>
+                    <p>Aula</p>
                 </div>
             </div>
 

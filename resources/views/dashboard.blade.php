@@ -51,8 +51,8 @@
             </form>
 
             <p class="text-center text-sm text-gray-500 mt-4">
-                Belum punya akun?
-                <span id="show-register-form" class="text-blue-500 cursor-pointer hover:underline">Register</span>
+                Belum pernah mendaftar?
+                <span id="show-register-form" class="text-blue-500 cursor-pointer hover:underline">Daftar Segera</span>
             </p>
         </div>
 
@@ -73,11 +73,11 @@
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
 
-                <div>
+                {{-- <div>
                     <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
                     <textarea id="alamat" name="alamat" rows="3" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
-                </div>
+                </div> --}}
 
                 <div>
                     <label for="no_hp_register" class="block text-sm font-medium text-gray-700">Nomor HP</label>
@@ -99,12 +99,12 @@
                     <select id="jenis_kelamin" name="jenis_kelamin" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                         <option value="">Pilih</option>
-                        <option value="Laki-laki">SD</option>
                         <option value="Perempuan">SMP</option>
                         <option value="Perempuan">SMA</option>
+                        <option value="Perempuan">SMK</option>
                     </select>
                 </div>
-                <div>
+                {{-- <div>
                     <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Pilihan Program</label>
                     <select id="jenis_kelamin" name="jenis_kelamin" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
@@ -112,7 +112,7 @@
                         <option value="Laki-laki">Reguler</option>
                         <option value="Perempuan">Unggulan</option>
                     </select>
-                </div>
+                </div> --}}
                 <div>
                     <label for="nama_orang_tua" class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="password" id="password" name="password" required
