@@ -137,7 +137,7 @@
     <div id="qris-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
         <div class="bg-white rounded-lg p-6 w-80 text-center">
             <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
-            <img src="{{ asset('assets/img/frame.png') }}" alt="QRIS Code"
+            <img src="{{ asset('assets/img/qris.png') }}" alt="QRIS Code"
                 class="mx-auto rounded-lg border border-gray-300">
             <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pendaftaran.</p>
             <button id="close-modal"
