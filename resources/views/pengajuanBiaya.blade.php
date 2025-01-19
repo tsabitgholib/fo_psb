@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen p-6">
-    <div class="w-full sm:max-w-md bg-white shadow-xl rounded-lg overflow-hidden pb-40 p-6 relative min-h-screen">
+<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
+    <div class="w-full sm:max-w-md bg-gray-50 shadow-xl rounded-lg overflow-hidden pb-40 p-4 sm:p-6 relative min-h-screen">
         <!-- Header -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-bold text-blue-600">Pengajuan Biaya</h1>
