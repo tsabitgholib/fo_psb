@@ -20,4 +20,10 @@ Route::get('/pendaftaran', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+Route::get('/jadwal', function () {
+    return view('jadwal');
+});
+Route::get('/pengajuanBiaya', function () {
+    return view('pengajuanBiaya');
+});
 Route::get('/', [MediaController::class, 'show']);

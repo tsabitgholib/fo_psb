@@ -44,9 +44,9 @@
             <div class="flex items-center space-x-2">
                 <div
                     class="w-10 h-10 bg-gray-200 text-gray-600 font-bold flex items-center justify-center rounded-full shadow-md">
-                    2
+                    3
                 </div>
-                <span class="text-gray-600 font-semibold">Unggah Berkas</span>
+                <span class="text-gray-600 font-semibold">Pengajuan Biaya</span>
             </div>
         </div>
 
@@ -84,9 +84,9 @@
                 </a>
                 <!--  -->
                 <div class="absolute right-4 top-4">
-                    <div
-                        class="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-xs">
-                        !
+                     <div
+                        class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        ✓
                     </div>
                 </div>
             </div>
@@ -121,22 +121,22 @@
                         <p class="text-sm text-purple-200">Pantau jadwal seleksi dan pengumuman.</p>
                     </div>
                 </a>
-                <div class="bg-blue-50 p-4 rounded-lg text-center">
-                    <p class="text-gray-600">
-                        <strong class="text-blue-500">Catatan:</strong> Pastikan semua data diisi dengan lengkap. Jika
-                        ada
-                        kendala,
-                        hubungi kami melalui email atau nomor telepon yang tersedia di halaman kontak.
-                    </p>
-                </div>
                 <!--  -->
                 <div class="absolute right-4 top-4">
                     <div
-                        class="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-xs">
-                        !
-                    </div>
+                    class="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                    !
                 </div>
             </div>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg text-center mt-6">
+            <p class="text-gray-600">
+                <strong class="text-blue-500">Catatan:</strong> Pastikan semua data diisi dengan lengkap. Jika
+                ada
+                kendala,
+                hubungi kami melalui email atau nomor telepon yang tersedia di halaman kontak.
+            </p>
+        </div>
         </div>
 
         <!--  -->
