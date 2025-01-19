@@ -10,7 +10,7 @@
 
 <body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
     <!-- -->
-    <div class="w-full sm:max-w-md bg-white shadow-xl rounded-lg overflow-hidden pb-40 p-4 sm:p-6 relative">
+    <div class="w-full sm:max-w-md bg-white min-h-screen shadow-xl rounded-lg overflow-hidden pb-40 p-4 sm:p-6 relative">
         <div class="flex items-center gap-4 mb-6">
             <!--  -->
             <div class="flex-shrink-0">
