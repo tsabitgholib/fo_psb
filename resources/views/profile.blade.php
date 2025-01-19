@@ -53,7 +53,7 @@
         <!--  -->
         <div class="space-y-6">
             <!--  -->
-            <div class="relative group active:scale-105 hover:scale-105 transition-transform duration-300">
+            <div class="relative group active:scale-105 transition-transform duration-300">
                 <a href="/formLengkap"
                     class="flex items-center gap-4 bg-gradient-to-r from-blue-400 to-blue-600 p-4 rounded-lg shadow-lg text-white">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/form.png" alt="Form Icon" class="h-12 w-12">
@@ -72,7 +72,7 @@
             </div>
 
             <!--  -->
-            <div class="relative group active:scale-105 hover:scale-105 transition-transform duration-300">
+            <div class="relative group active:scale-105 transition-transform duration-300">
                 <a href="/berkas"
                     class="flex items-center gap-4 bg-gradient-to-r from-green-400 to-green-600 p-4 rounded-lg shadow-lg text-white">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/upload.png" alt="Upload Icon"
@@ -92,7 +92,7 @@
             </div>
 
             <!-- -->
-            <div class="relative group active:scale-105 hover:scale-105 transition-transform duration-300">
+            <div class="relative group active:scale-105 transition-transform duration-300">
                 <a href="/pengajuanBiaya"
                     class="flex items-center gap-4 bg-gradient-to-r from-yellow-400 to-yellow-600 p-4 rounded-lg shadow-lg text-white">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/money.png" alt="Money Icon" class="h-12 w-12">
@@ -111,7 +111,7 @@
             </div>
 
             <!--  -->
-            <div class="relative group active:scale-105 hover:scale-105 transition-transform duration-300">
+            <div class="relative group active:scale-105 transition-transform duration-300">
                 <a href="/jadwal"
                     class="flex items-center gap-4 bg-gradient-to-r from-purple-400 to-purple-600 p-4 rounded-lg shadow-lg text-white">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/calendar.png" alt="Calendar Icon"
