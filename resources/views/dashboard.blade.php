@@ -86,6 +86,15 @@
                     </select>
                 </div>
                 <div>
+                    <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Pilihan Program</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="Laki-laki">Reguler</option>
+                        <option value="Perempuan">Unggulan</option>
+                    </select>
+                </div>
+                <div>
                     <label for="nama_orang_tua" class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="password" id="password" name="password" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
