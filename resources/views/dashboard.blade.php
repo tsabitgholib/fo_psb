@@ -70,6 +70,21 @@
                         <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
+                <div>
+                    <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Pilihan Sekolah</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="Laki-laki">SD</option>
+                        <option value="Perempuan">SMP</option>
+                        <option value="Perempuan">SMA</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="nama_orang_tua" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
                 <button type="submit"
                     class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">

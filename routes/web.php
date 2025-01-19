@@ -17,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/pendaftaran', function () {
     return view('dashboard');
 });
+Route::get('/profile', function () {
+    return view('profile');
+});
 Route::get('/', [MediaController::class, 'show']);
