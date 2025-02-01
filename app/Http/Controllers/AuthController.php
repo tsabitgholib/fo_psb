@@ -34,7 +34,7 @@ class AuthController extends Controller
                 'lunas' => false
             ]);
 
-            return redirect('/profile')->with('success', 'Registrasi berhasil!');
+            return redirect('/qris')->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
             Log::error('Registrasi gagal: ' . $e->getMessage());
 
