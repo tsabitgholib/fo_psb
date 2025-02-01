@@ -1,4 +1,3 @@
-kenapa tombol daftarnya tidak bisa di klik lagi
 <!DOCTYPE html>
 <html lang="en">
 
