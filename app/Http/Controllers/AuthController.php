@@ -16,7 +16,7 @@ class AuthController extends Controller
             $validatedData = $request->validate([
                 'nama_siswa' => 'required|string|max:255',
                 'nama_orang_tua' => 'required|string|max:255',
-                'no_hp_register' => 'required|numeric',
+                'no_hp' => 'required|numeric',
                 'jenis_kelamin' => 'required',
                 'sekolah' => 'required',
                 'password' => 'required|string|min:8',
@@ -25,7 +25,7 @@ class AuthController extends Controller
             User::create([
                 'nama_siswa' => $validatedData['nama_siswa'],
                 'nama_orang_tua' => $validatedData['nama_orang_tua'],
-                'no_hp' => $validatedData['no_hp_register'],
+                'no_hp' => $validatedData['no_hp'],
                 'jenis_kelamin' => $validatedData['jenis_kelamin'],
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
