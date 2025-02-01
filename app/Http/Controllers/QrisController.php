@@ -25,7 +25,7 @@ class QrisController extends Controller
         if ($row) {
             $data = [
                 "accountNo" => "5080010295",
-                "amount" => strval($row->billing_amount),
+                "amount" => strval($row->tagihan),
                 "mitraCustomerId" => "ISLAMIC CENTER SMG451061",
                 "transactionId" => strval($row->created_time),
                 "tipeTransaksi" => "MTR-GENERATE-QRIS-DYNAMIC",
