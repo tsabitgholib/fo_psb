@@ -68,14 +68,10 @@ class QrisController extends Controller
             }
 
             if (isset($responseData['transactionDetail']['rawQrData'])) {
-                return view('qris', [
-                    'qrData' => $responseData['transactionDetail']['rawQrData'],
-                    'createdTime' => $createdTime
-                ]);
+                return view('qris')->with('qrData', $responseData['transactionDetail']['rawQrData']);
             } else {
                 return response()->json(['success' => false, 'message' => 'QR Data tidak ditemukan']);
-            }
-                     
+            }            
     
             return response()->json($responseData);
         }
