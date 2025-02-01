@@ -126,7 +126,7 @@
                     Daftar
                 </button>
                 <!-- QRIS Modal -->
-                <div id="qris-modal"
+                <!-- <div id="qris-modal"
                     class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
                     <div class="bg-white rounded-lg p-6 w-80 text-center -mt-40 max-h-96">
                         <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
@@ -143,7 +143,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </form>
 
             <p class="text-center text-sm text-gray-500 mt-4">
