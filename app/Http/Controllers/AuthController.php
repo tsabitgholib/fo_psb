@@ -29,13 +29,13 @@ class AuthController extends Controller
                 'jenis_kelamin' => $validatedData['jenis_kelamin'],
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
-                'tagihan' => '90000',
+                'tagihan' => '9000',
                 'created_time' => '12345678',
                 'va_number' => '1234567891212877',
                 'lunas' => false
             ]);
     
-            return redirect()->route('qris.generate', ['createdTime' => $user->created_time])
+            return redirect()->route('qris', ['createdTime' => $user->created_time])
                              ->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
             Log::error('Registrasi gagal: ' . $e->getMessage());
