@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\MediaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MediaController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/pendaftaran', function () {
     return view('dashboard');
 });
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+Route::post('/register', [AuthController::class, 'store'])->name('register.store');
+
 Route::get('/profile', function () {
     return view('profile');
 });

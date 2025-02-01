@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Form Login dan Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -60,7 +61,8 @@
         <div id="register-form" class="hidden">
             <h2 class="text-xl font-bold text-center text-gray-800 mb-6">Form Pendaftaran</h2>
 
-            <form id="register-form-element" action="/profile" method="#" class="space-y-4">
+            <form id="register-form-element" action="{{ route('register.store') }}" method="POST" class="space-y-4">
+                @csrf
                 <div>
                     <label for="nama_siswa" class="block text-sm font-medium text-gray-700">Nama Siswa</label>
                     <input type="text" id="nama_siswa" name="nama_siswa" required
@@ -95,13 +97,13 @@
                     </select>
                 </div>
                 <div>
-                    <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Pilihan Sekolah</label>
-                    <select id="jenis_kelamin" name="jenis_kelamin" required
+                    <label for="sekolah" class="block text-sm font-medium text-gray-700">Pilihan Sekolah</label>
+                    <select id="sekolah" name="sekolah" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                         <option value="">Pilih</option>
-                        <option value="Perempuan">SMP</option>
-                        <option value="Perempuan">SMA</option>
-                        <option value="Perempuan">SMK</option>
+                        <option value="SMP">SMP</option>
+                        <option value="SMA">SMA</option>
+                        <option value="SMK">SMK</option>
                     </select>
                 </div>
                 {{-- <div>
@@ -114,15 +116,34 @@
                     </select>
                 </div> --}}
                 <div>
-                    <label for="nama_orang_tua" class="block text-sm font-medium text-gray-700">Password</label>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="password" id="password" name="password" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
 
-                <button type="submit"
+                <button type="button" id="daftar-button"
                     class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     Daftar
                 </button>
+                <!-- QRIS Modal -->
+                <div id="qris-modal"
+                    class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+                    <div class="bg-white rounded-lg p-6 w-80 text-center -mt-40 max-h-96">
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
+                        <img src="{{ asset('assets/img/qris.png') }}" alt="QRIS Code"
+                            class="mx-auto rounded-lg border border-gray-300 h-56">
+                        <p class="text-gray-600 text-base mt-4">Silakan scan QRIS untuk melanjutkan proses pendaftaran.
+                        </p>
+                        <div class="flex items-center justify-center space-x-2 mt-2">
+                            <button type="button" id="close-modal"
+                                class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
+                            <button type="submit" id="lanjutkan-button"
+                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Lanjutkan
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </form>
 
             <p class="text-center text-sm text-gray-500 mt-4">
@@ -132,22 +153,6 @@
         </div>
     </div>
     @include('components.navbar')
-
-    <!-- QRIS Modal -->
-    <div id="qris-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
-        <div class="bg-white rounded-lg p-6 w-80 text-center">
-            <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
-            <img src="{{ asset('assets/img/qris.png') }}" alt="QRIS Code"
-                class="mx-auto rounded-lg border border-gray-300">
-            <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pendaftaran.</p>
-            <button id="close-modal"
-                class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
-            <a href="/profile">
-                <button
-                    class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">Lanjutkan</button>
-            </a>
-        </div>
-    </div>
 
     <script>
         // Toggle between Login and Register forms
@@ -163,6 +168,8 @@
         const togglePassword = document.getElementById("togglePassword");
         const eyeIcon = document.getElementById("eyeIcon");
         const eyeSlashIcon = document.getElementById("eyeSlashIcon");
+        const daftarButton = document.getElementById('daftar-button');
+        const lanjutkanButton = document.getElementById('lanjutkan-button');
 
         togglePassword.addEventListener("click", () => {
             // Toggle password visibility
@@ -190,13 +197,20 @@
             loginForm.classList.remove('hidden');
         });
 
-        registerFormElement.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent form submission
-            qrisModal.classList.remove('hidden'); // Show QRIS modal
+        // Tampilkan modal saat tombol "Daftar" diklik
+        daftarButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah submit form
+            qrisModal.classList.remove('hidden'); // Tampilkan modal
         });
 
+        // Tutup modal saat tombol "Tutup" diklik
         closeModal.addEventListener('click', () => {
-            qrisModal.classList.add('hidden'); // Hide QRIS modal
+            qrisModal.classList.add('hidden'); // Sembunyikan modal
+        });
+
+        // Submit form saat tombol "Lanjutkan" diklik
+        lanjutkanButton.addEventListener('click', () => {
+            registerFormElement.submit(); // Submit form
         });
     </script>
 </body>
