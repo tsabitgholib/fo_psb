@@ -30,7 +30,7 @@ class AuthController extends Controller
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
                 'tagihan' => '90000',
-                'created_time' => now(),
+                'created_time' => '12345678',
                 'lunas' => false
             ]);
 
