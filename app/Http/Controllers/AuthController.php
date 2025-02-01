@@ -56,7 +56,7 @@ class AuthController extends Controller
         if ($user && Hash::check($request->password, $user->password)) {
             if ($user->lunas) {
                 Auth::login($user);
-                return redirect()->view('profile');
+                return redirect()->route('profile');
             } else {
                 return redirect()->back()->withErrors(['lunas' => 'Akun Anda belum lunas.']);
             }
