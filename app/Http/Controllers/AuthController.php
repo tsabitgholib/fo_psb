@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
 
-    public function store(Request $request)
+        public function store(Request $request)
     {
         try {
             $validatedData = $request->validate([
@@ -29,14 +30,16 @@ class AuthController extends Controller
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
                 'tagihan' => '90000',
-                'created_time' => '12345678',
+                'created_time' => now(),
                 'lunas' => false
             ]);
 
             return redirect('/profile')->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
-            // Set session flash data untuk pesan error
-            return back()->with('error', 'Terjadi kesalahan. Silakan coba lagi.');
+            Log::error('Registrasi gagal: ' . $e->getMessage());
+
+            return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+
 }
