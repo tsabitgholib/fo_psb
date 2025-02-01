@@ -15,7 +15,7 @@
         <div id="login-form">
             <h2 class="text-xl font-bold text-center text-gray-800 mb-6">Form Login</h2>
 
-            <form action="/profile" method="#" class="space-y-4">
+            <form action="{{ route('auth.login') }}" method="#" class="space-y-4">
                 <div>
                     <label for="no_hp" class="block text-sm font-medium text-gray-700">Nomor HP</label>
                     <input type="text" id="no_hp" name="no_hp" required

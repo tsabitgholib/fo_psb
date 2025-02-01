@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/pendaftaran', function () {
     return view('dashboard');
 });
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
 // Route::get('/', function () {
 //     return view('dashboard');
 // });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
@@ -19,7 +20,7 @@ class AuthController extends Controller
                 'no_hp' => 'required|numeric',
                 'jenis_kelamin' => 'required',
                 'sekolah' => 'required',
-                'password' => 'required|string|min:8',
+                'password' => 'required|string|min:6',
             ]);
     
             $user = User::create([
@@ -44,5 +45,24 @@ class AuthController extends Controller
         }
     }
     
+    public function login(Request $request)
+    {
+        $request->validate([
+            'no_hp' => 'required|numeric',
+            'password' => 'required|min:6',
+        ]);
+        $user = User::where('no_hp', $request->no_hp)->first();
+
+        if ($user && Hash::check($request->password, $user->password)) {
+            if ($user->lunas) {
+                Auth::login($user);
+                return redirect()->route('profile');
+            } else {
+                return redirect()->back()->withErrors(['lunas' => 'Akun Anda belum lunas.']);
+            }
+        } else {
+            return redirect()->back()->withErrors(['login' => 'Nomor HP atau password salah.']);
+        }
+    }
 
 }
