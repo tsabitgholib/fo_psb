@@ -198,10 +198,10 @@
         });
 
         // Tampilkan modal saat tombol "Daftar" diklik
-        daftarButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah submit form
-            qrisModal.classList.remove('hidden'); // Tampilkan modal
-        });
+        // daftarButton.addEventListener('click', (e) => {
+        //     e.preventDefault(); // Mencegah submit form
+        //     qrisModal.classList.remove('hidden'); // Tampilkan modal
+        // });
 
         // Tutup modal saat tombol "Tutup" diklik
         closeModal.addEventListener('click', () => {
