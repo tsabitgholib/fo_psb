@@ -82,8 +82,8 @@
                 </div> --}}
 
                 <div>
-                    <label for="no_hp_register" class="block text-sm font-medium text-gray-700">Nomor HP</label>
-                    <input type="tel" id="no_hp_register" name="no_hp_register" required
+                    <label for="no_hp" class="block text-sm font-medium text-gray-700">Nomor HP</label>
+                    <input type="tel" id="no_hp" name="no_hp" required
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
 
