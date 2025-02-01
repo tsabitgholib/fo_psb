@@ -125,6 +125,25 @@
                     class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     Daftar
                 </button>
+                <!-- QRIS Modal -->
+                <!-- <div id="qris-modal"
+                    class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+                    <div class="bg-white rounded-lg p-6 w-80 text-center -mt-40 max-h-96">
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
+                        <img src="{{ asset('assets/img/qris.png') }}" alt="QRIS Code"
+                            class="mx-auto rounded-lg border border-gray-300 h-56">
+                        <p class="text-gray-600 text-base mt-4">Silakan scan QRIS untuk melanjutkan proses pendaftaran.
+                        </p>
+                        <div class="flex items-center justify-center space-x-2 mt-2">
+                            <button type="button" id="close-modal"
+                                class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
+                            <button type="submit" id="lanjutkan-button"
+                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Lanjutkan
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
             </form>
 
             <p class="text-center text-sm text-gray-500 mt-4">
@@ -178,6 +197,12 @@
             loginForm.classList.remove('hidden');
         });
 
+        // Tampilkan modal saat tombol "Daftar" diklik
+        // daftarButton.addEventListener('click', (e) => {
+        //     e.preventDefault(); // Mencegah submit form
+        //     qrisModal.classList.remove('hidden'); // Tampilkan modal
+        // });
+
         // Tutup modal saat tombol "Tutup" diklik
         closeModal.addEventListener('click', () => {
             qrisModal.classList.add('hidden'); // Sembunyikan modal
@@ -188,28 +213,6 @@
             registerFormElement.submit(); // Submit form
         });
     </script>
-
-<!-- INI BUAT QRISSS BANG -->
-<script>
-    document.getElementById('register-form-element').addEventListener('submit', async function (event) {
-        event.preventDefault();
-        
-        let formData = new FormData(this);
-        
-        let response = await fetch(this.action, {
-            method: 'POST',
-            body: formData
-        });
-
-        let result = await response.json();
-        
-        if (result.success) {
-            window.location.href = `/qris/${result.transactionDetail.rawQrData}`;
-        } else {
-            alert(result.message || "Terjadi kesalahan saat mendaftar.");
-        }
-    });
-</script>
 </body>
 
 </html>
