@@ -12,7 +12,6 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         try {
-            // Validasi data
             $validatedData = $request->validate([
                 'nama_siswa' => 'required|string|max:255',
                 'nama_orang_tua' => 'required|string|max:255',
@@ -22,7 +21,6 @@ class AuthController extends Controller
                 'password' => 'required|string|min:8',
             ]);
 
-            // Simpan ke database
             User::create([
                 'nama_siswa' => $validatedData['nama_siswa'],
                 'nama_orang_tua' => $validatedData['nama_orang_tua'],
@@ -30,9 +28,11 @@ class AuthController extends Controller
                 'jenis_kelamin' => $validatedData['jenis_kelamin'],
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
+                'tagihan' => '90000',
+                'created_time' => '12345678',
+                'lunas' => false
             ]);
 
-            // Set session flash data untuk pesan sukses
             return redirect('/profile')->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
             // Set session flash data untuk pesan error
