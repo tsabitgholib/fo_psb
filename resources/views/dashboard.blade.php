@@ -121,7 +121,7 @@
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
 
-                <button type="button" id="daftar-button"
+                <button type="submit" id="daftar-button"
                     class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     Daftar
                 </button>
