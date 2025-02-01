@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\QrisController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -45,3 +46,5 @@ Route::get('/', [MediaController::class, 'show']);
 Route::get('/qris/{qrData}', function ($qrData) {
     return view('qris', ['qrData' => $qrData]);
 })->name('qris.show');
+
+Route::get('/qris', [QrisController::class, 'generate'])->name('qris.generate');

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 class AuthController extends Controller
 {
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
         try {
             $validatedData = $request->validate([
@@ -21,8 +21,8 @@ class AuthController extends Controller
                 'sekolah' => 'required',
                 'password' => 'required|string|min:8',
             ]);
-
-            User::create([
+    
+            $user = User::create([
                 'nama_siswa' => $validatedData['nama_siswa'],
                 'nama_orang_tua' => $validatedData['nama_orang_tua'],
                 'no_hp' => $validatedData['no_hp'],
@@ -31,15 +31,18 @@ class AuthController extends Controller
                 'password' => bcrypt($validatedData['password']),
                 'tagihan' => '90000',
                 'created_time' => '12345678',
+                'va_number' => '1234567891212877',
                 'lunas' => false
             ]);
-
-            return redirect('/qris')->with('success', 'Registrasi berhasil!');
+    
+            return redirect()->route('qris.generate', ['createdTime' => $user->created_time])
+                             ->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
             Log::error('Registrasi gagal: ' . $e->getMessage());
-
+    
             return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+    
 
 }

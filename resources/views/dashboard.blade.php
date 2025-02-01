@@ -204,12 +204,13 @@
         let result = await response.json();
         
         if (result.success) {
-            window.location.href = `/qris/${result.transactionDetail.rawQrData}`;
+            window.location.href = `/qris?createdTime=${result.createdTime}`;
         } else {
             alert(result.message || "Terjadi kesalahan saat mendaftar.");
         }
     });
 </script>
+
 </body>
 
 </html>
