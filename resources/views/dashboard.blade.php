@@ -193,22 +193,24 @@
 <script>
     document.getElementById('register-form-element').addEventListener('submit', async function (event) {
         event.preventDefault();
-        
+
         let formData = new FormData(this);
-        
+
         let response = await fetch(this.action, {
             method: 'POST',
             body: formData
         });
 
         let result = await response.json();
-        
+
         if (result.success) {
+            // Redirect to QRIS page after registration
             window.location.href = `/qris?createdTime=${result.createdTime}`;
         } else {
             alert(result.message || "Terjadi kesalahan saat mendaftar.");
         }
     });
+
 </script>
 
 </body>

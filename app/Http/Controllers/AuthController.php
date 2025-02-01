@@ -35,7 +35,7 @@ class AuthController extends Controller
                 'lunas' => false
             ]);
     
-            return redirect()->route('qris', ['createdTime' => $user->created_time])
+            return redirect()->route('qris.generate', ['createdTime' => $user->created_time])
                              ->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
             Log::error('Registrasi gagal: ' . $e->getMessage());
