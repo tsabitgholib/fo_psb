@@ -21,6 +21,7 @@ return new class extends Migration
             $table->String('tagihan');
             $table->String('lunas');
             $table->String('created_time');
+            $table->String('transaction_qr_id');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

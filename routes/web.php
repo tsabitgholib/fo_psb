@@ -40,3 +40,8 @@ Route::get('/pengajuanBiaya', function () {
     return view('pengajuanBiaya');
 });
 Route::get('/', [MediaController::class, 'show']);
+
+// ROUTE QRIS BANG
+Route::get('/qris/{qrData}', function ($qrData) {
+    return view('qris', ['qrData' => $qrData]);
+})->name('qris.show');
