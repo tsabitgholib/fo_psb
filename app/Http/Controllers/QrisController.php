@@ -66,6 +66,12 @@ class QrisController extends Controller
             } else {
                 return response()->json(['success' => false, 'message' => 'Transaction QR ID tidak ditemukan dalam response']);
             }
+
+            if (isset($responseData['transactionDetail']['rawQRData'])) {
+                return view('qris')->with('qrData', $responseData['transactionDetail']['rawQRData']);
+            } else {
+                return response()->json(['success' => false, 'message' => 'QR Data tidak ditemukan']);
+            }            
     
             return response()->json($responseData);
         }

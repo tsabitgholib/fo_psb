@@ -42,5 +42,5 @@ Route::get('/pengajuanBiaya', function () {
 });
 Route::get('/', [MediaController::class, 'show']);
 
-//qrisss
-Route::get('/qris', [QrisController::class, 'generate'])->name('qris.generate');
+//qriss
+Route::get('/qris/generate', [QrisController::class, 'generate'])->name('qris.generate');
