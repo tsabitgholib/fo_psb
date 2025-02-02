@@ -177,7 +177,7 @@ class QrisController extends Controller
                 $for_ict = ($amount < 100000) ? $amount * 0.025 : 3000;
 
                 DB::table('transaksi')->insert([
-                    'user_id' => $billing->user_id,
+                    'user_id' => $billing->id,
                     'transaksi' => $amount,
                     'for_ict' => $for_ict,
                     'tanggal_transaksi' => now(),
