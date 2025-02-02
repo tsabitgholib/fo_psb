@@ -25,7 +25,12 @@ class AuthController extends Controller
 
             $no_hp = preg_replace('/\D/', '', $validatedData['no_hp']);
             $no_hp = substr($no_hp, -10);
-            $vaNumber = '777777' . str_pad($no_hp, 10, '0', STR_PAD_LEFT);              
+
+            if (User::where('no_hp', $no_hp)->exists()) {
+                return back()->with('error', 'Nomor HP sudah terdaftar.');
+            }
+            $vaNumber = '777777' . str_pad($no_hp, 10, '0', STR_PAD_LEFT);   
+                       
     
             $user = User::create([
                 'nama_siswa' => $validatedData['nama_siswa'],
