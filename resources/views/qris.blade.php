@@ -39,8 +39,7 @@
             fetch(`/qris/checkStatus?createdTime=${createdTime}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Response Code:', data.responseCode);
-                    if (data.responseCode === '13') {
+                    if (data.responseCode === '00') {
                         alert("Pembayaran berhasil!");
                         document.getElementById("redirectPendaftaran").classList.remove("hidden");
                     } else {
