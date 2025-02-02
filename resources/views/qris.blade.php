@@ -33,12 +33,13 @@
             height: 256,
         });
 
-        var rawQrData = "{{ $createdTime }}";
+        var createdTime = "{{ $createdTime }}";
 
         document.getElementById("checkStatus").addEventListener("click", function() {
-            fetch('/qris/checkStatus?createdTime=$createdTime') // Ganti dengan createdTime yang sesuai
+            fetch(`/qris/checkStatus?createdTime=${createdTime}`)
                 .then(response => response.json())
                 .then(data => {
+                    console.log('Response Code:', data.responseCode);
                     if (data.responseCode === '13') {
                         alert("Pembayaran berhasil!");
                         document.getElementById("redirectPendaftaran").classList.remove("hidden");
@@ -48,6 +49,7 @@
                 })
                 .catch(error => console.error('Error:', error));
         });
+
     </script>
 </body>
 
