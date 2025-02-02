@@ -96,7 +96,7 @@ class QrisController extends Controller
         if ($row) {
             $dataCheckStatus = [
                 "accountNo" => "5080010295",
-                "amount" => strval($row->billing_amount),
+                "amount" => strval($row->tagihan),
                 "merchantId" => "736150800102952",
                 "mitraCustomerId" => "ISLAMIC CENTER SMG451061",
                 "transactionId" => strval($row->created_time),

@@ -46,5 +46,5 @@ Route::get('/', [MediaController::class, 'show']);
 
 //qriss
 Route::get('/qris/generate', [QrisController::class, 'generate'])->name('qris.generate');
-Route::get('/checkStatus', [QrisController::class, 'checkStatus']);
+Route::get('/qris/checkStatus', [QrisController::class, 'checkStatus']);
 Route::post('/push-notification', [QrisController::class, 'pushNotification']);
