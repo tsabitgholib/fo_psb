@@ -39,7 +39,7 @@
             fetch('/qris/checkStatus?createdTime=$createdTime') // Ganti dengan createdTime yang sesuai
                 .then(response => response.json())
                 .then(data => {
-                    if (data.responseCode === '00') {
+                    if (data.responseCode === '13') {
                         alert("Pembayaran berhasil!");
                         document.getElementById("redirectPendaftaran").classList.remove("hidden");
                     } else {
