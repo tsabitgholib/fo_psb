@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Display</title>
+    <title>QRIS Pembayaran</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Menambahkan QR Code JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
-<body>
-    <h2>Scan QR Code</h2>
-    <div id="qrcode"></div>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h2 class="text-2xl font-bold mb-4">Scan QRIS untuk Pembayaran</h2>
+
+        <!-- Tempat QR Code akan ditampilkan langsung -->
+        <div id="qrisCode" class="w-64 h-64 mx-auto"></div>
+
+        <p class="text-gray-600 mt-4">Gunakan aplikasi pembayaran untuk scan QR ini.</p>
+        <a href="/pendaftaran" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600">Kembali ke Beranda</a>
+    </div>
 
     <script>
-        // Data QR dari respons
-        var rawQrData = "00020101021226740022ID.CO.BANKMUAMALAT.WWW011893600147240012314102157361508001029520303URE51440014ID.CO.QRIS.WWW0215ID20253706659240303URE5204736153033605405900005502015802ID5914ISLAMIC CENTER6013KOTA SEMARANG61055027362160712A0171480423A63041EB";
-        
-        // Generate QR Code
-        new QRCode(document.getElementById("qrcode"), {
-            text: rawQrData,
-            width: 256,
-            height: 256
+        var rawQrData = "{{ $qrData }}";
+
+        // Generate QR code baru langsung
+        new QRCode(document.getElementById("qrisCode"), {
+            text: rawQrData, // Gunakan rawQrData untuk QR code
+            width: 256, // Ukuran QR code
+            height: 256,
         });
     </script>
 </body>
+
 </html>
