@@ -22,6 +22,10 @@ class AuthController extends Controller
                 'sekolah' => 'required',
                 'password' => 'required|string|min:6',
             ]);
+
+            $no_hp = preg_replace('/\D/', '', $validatedData['no_hp']);
+            $no_hp = substr($no_hp, -10);
+            $vaNumber = '777777' . str_pad($no_hp, 10, '0', STR_PAD_LEFT);              
     
             $user = User::create([
                 'nama_siswa' => $validatedData['nama_siswa'],
@@ -31,8 +35,8 @@ class AuthController extends Controller
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
                 'tagihan' => '9000',
-                'created_time' => '12345678',
-                'va_number' => '1234567891212877',
+                'created_time' => substr((string) intval(microtime(true) * 1000), -8),
+                'va_number' => (int) $vaNumber,
                 'lunas' => false
             ]);
     
