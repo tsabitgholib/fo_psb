@@ -99,7 +99,7 @@ class QrisController extends Controller
                 "amount" => strval($row->tagihan),
                 "merchantId" => "736150800102952",
                 "mitraCustomerId" => "ISLAMIC CENTER SMG451061",
-                "transactionId" => strval($row->created_time),
+                "transactionId" => $createdTime,
                 "transactionQrId" => $row->transaction_qr_id,
                 "tipeTransaksi" => "MTR-CHECK-STATUS"
             ];
