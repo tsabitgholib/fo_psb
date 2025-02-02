@@ -69,7 +69,7 @@ class QrisController extends Controller
 
             if (isset($responseData['transactionDetail']['rawQrData'])) {
                 return view('qris')->with('qrData', $responseData['transactionDetail']['rawQrData'],
-                                    'createdTime', $responseData['transactionDetail']['transactionId']);
+                                    'createdTime', $responseData['transactionId']);
             } else {
                 return response()->json(['success' => false, 'message' => 'QR Data tidak ditemukan']);
             }            
@@ -104,7 +104,7 @@ class QrisController extends Controller
             $secretKey = 'TokenJWT_BMI_ICT';
             $jwtTokenCheckStatus = JWT::encode($dataCheckStatus, $secretKey);
     
-            $url = 'http://10.99.23.111/qris/lazizmu_diy/server.php?token=' . urlencode($jwtTokenCheckStatus);
+            $url = 'http://10.99.23.111/qris/SEMARANG_WALISONGO/server.php?token=' . urlencode($jwtTokenCheckStatus);
     
             $chCheckStatus = curl_init($url);
             curl_setopt($chCheckStatus, CURLOPT_RETURNTRANSFER, true);
