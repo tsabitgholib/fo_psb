@@ -36,7 +36,7 @@
         var rawQrData = "{{ $createdTime }}";
 
         document.getElementById("checkStatus").addEventListener("click", function() {
-            fetch('/check-status?createdTime=$createdTime') // Ganti dengan createdTime yang sesuai
+            fetch('/qris/checkStatus?createdTime=$createdTime') // Ganti dengan createdTime yang sesuai
                 .then(response => response.json())
                 .then(data => {
                     if (data.responseCode === '00') {
