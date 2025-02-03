@@ -174,12 +174,12 @@ class QrisController extends Controller
 
                 DB::table('users')->where('transaction_qr_id', $transactionQrId)->update(['lunas' => 1]);
 
-                $for_ict = ($amount < 100000) ? $amount * 0.025 : 3000;
+                // $for_ict = ($amount < 100000) ? $amount * 0.025 : 3000;
 
                 DB::table('transaksi')->insert([
                     'user_id' => $billing->id,
                     'transaksi' => $amount,
-                    'for_ict' => $for_ict,
+                    'for_ict' => 0,
                     'tanggal_transaksi' => now(),
                     'va_number' => $vano,
                     'method' => 'QRIS',
@@ -188,30 +188,29 @@ class QrisController extends Controller
                     'lunas' => 1,
                 ]);
 
-                // log traffic
-                // $servernamelog = '10.99.23.20';
-                // $usernamelog = 'root';
-                // $passwordlog = 'Smartpay1ct';
-                // $databaselog = 'farrelep_broadcaster';
+                $servernamelog = '10.99.23.20';
+                $usernamelog = 'root';
+                $passwordlog = 'Smartpay1ct';
+                $databaselog = 'farrelep_broadcaster';
                 
-                // $dbTraffic = mysqli_connect($servernamelog, $usernamelog, $passwordlog, $databaselog);
-                //     if ($dbTraffic->connect_errno) {
-                //         echo json_encode("Failed to connect to MySQL: " . $dbTraffic->connect_error);
-                //         exit();
-                //     }
+                $dbTraffic = mysqli_connect($servernamelog, $usernamelog, $passwordlog, $databaselog);
+                    if ($dbTraffic->connect_errno) {
+                        echo json_encode("Failed to connect to MySQL: " . $dbTraffic->connect_error);
+                        exit();
+                    }
                 
-                // $CUSTNM = 'SEMARANG_WALISONGO';
-                // $NOMINALFee1 = (int) round($amount * 0.007, 0, PHP_ROUND_HALF_UP); // Biaya QRIS
-                // $NOMINALFee2 = (int) $for_ict; // Biaya Admin ICT
-                // $GetValue = (string) ($amount + $NOMINALFee1 + $NOMINALFee2); // Nominal Gabungan
-                // $accountNoLog = '5080010295'; // Account No QRIS
-                // $mitraCustomerId = 'ISLAMIC CENTER SMG451061'; // Mitra ID
-                // $vanoLog = $vano ?? '-';
-                // $transactionIdLog = $data->transactionId;
-                // $transactionQrIdLog = $transactionQrId;
+                $CUSTNM = 'SEMARANG_WALISONGO';
+                $NOMINALFee1 = (int) round($amount * 0.007, 0, PHP_ROUND_HALF_UP); // Biaya QRIS
+                $NOMINALFee2 = 0; // Biaya Admin ICT
+                $GetValue = (string) ($amount + $NOMINALFee1 + $NOMINALFee2); // Nominal Gabungan
+                $accountNoLog = '5080010295'; // Account No QRIS
+                $mitraCustomerId = 'ISLAMIC CENTER SMG451061'; // Mitra ID
+                $vanoLog = $vano ?? '-';
+                $transactionIdLog = $data->transactionId;
+                $transactionQrIdLog = $transactionQrId;
                 
-                // $queryLog = "CALL LogPaymentQR ('" . $CUSTNM . "', '" . $mitraCustomerId . "' , '" . $accountNoLog . "' , '" . $transactionIdLog . "', '" . $transactionId . "' , '" . $transactionQrIdLog . "' , '" . $vanoLog . "' , '" . $GetValue . "' ,'" . $amount . "' ,'" . $NOMINALFee1 . "' ,'" . $NOMINALFee2 . "' ,'" . $token . "','-')";
-                // $dbTraffic->query($queryLog);
+                $queryLog = "CALL LogPaymentQR ('" . $CUSTNM . "', '" . $mitraCustomerId . "' , '" . $accountNoLog . "' , '" . $transactionIdLog . "', '" . $transactionId . "' , '" . $transactionQrIdLog . "' , '" . $vanoLog . "' , '" . $GetValue . "' ,'" . $amount . "' ,'" . $NOMINALFee1 . "' ,'" . $NOMINALFee2 . "' ,'" . $token . "','-')";
+                $dbTraffic->query($queryLog);
 
                 Logger::log('Push Notification', $request->all(), [
                     'responseCode' => '00',
