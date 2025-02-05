@@ -26,7 +26,8 @@ class User extends Authenticatable
         'password',
         'tagihan',
         'created_time',
-        'lunas'
+        'lunas',
+        'va_number'
     ];
 
     

@@ -162,7 +162,7 @@ class QrisController extends Controller
         $data = $decoded->data;
 
         if ($responseCode === '00') {
-            $vano = $data->vano;
+            $vano = $data->vano1 ?? $data->vano;
             $amount = $data->amount;
             $accountNo = $data->accountNo;
             $transactionQrId = $data->transactionQrId;

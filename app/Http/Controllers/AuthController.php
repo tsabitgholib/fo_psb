@@ -39,7 +39,7 @@ class AuthController extends Controller
                 'jenis_kelamin' => $validatedData['jenis_kelamin'],
                 'sekolah' => $validatedData['sekolah'],
                 'password' => bcrypt($validatedData['password']),
-                'tagihan' => '9000',
+                'tagihan' => '1',
                 'created_time' => substr((string) intval(microtime(true) * 1000), -8),
                 'va_number' => (int) $vaNumber,
                 'lunas' => false
