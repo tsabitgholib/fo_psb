@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasTable('media')){
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('media_1')->nullable();
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('media_5')->nullable();
             $table->timestamps();
         });
+    }
     }
 
     /**
