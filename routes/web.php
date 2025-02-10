@@ -30,8 +30,14 @@ Route::get('/profile', function () {
 Route::get('/formLengkap', function () {
     return view('components/formLengkap');
 });
+Route::get('/editBerkas', function () {
+    return view('components/editBerkas');
+});
 Route::get('/berkas', function () {
     return view('components/berkas');
+});
+Route::get('/dashboardUser', function () {
+    return view('components/dashboardUser');
 });
 Route::get('/jadwal', function () {
     return view('jadwal');

@@ -9,6 +9,7 @@
     </head>
 
     <body class="bg-gray-100 flex justify-center items-start min-h-screen pt-4">
+        <div><div>hello</div></div>
         <div
             class="w-full sm:max-w-md bg-gray-50 min-h-screen shadow-md rounded-lg p-6 pb-44"
         >
@@ -158,6 +159,23 @@
                         />
                     </div>
 
+                    {{--
+                    <div>
+                        <label
+                            for="alamat"
+                            class="block text-sm font-medium text-gray-700"
+                            >Alamat</label
+                        >
+                        <textarea
+                            id="alamat"
+                            name="alamat"
+                            rows="3"
+                            required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        ></textarea>
+                    </div>
+                    --}}
+
                     <div>
                         <label
                             for="no_hp_register"
@@ -208,6 +226,25 @@
                             <option value="SMK">SMK</option>
                         </select>
                     </div>
+                    {{--
+                    <div>
+                        <label
+                            for="jenis_kelamin"
+                            class="block text-sm font-medium text-gray-700"
+                            >Pilihan Program</label
+                        >
+                        <select
+                            id="jenis_kelamin"
+                            name="jenis_kelamin"
+                            required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        >
+                            <option value="">Pilih</option>
+                            <option value="Laki-laki">Reguler</option>
+                            <option value="Perempuan">Unggulan</option>
+                        </select>
+                    </div>
+                    --}}
                     <div>
                         <label
                             for="password"
