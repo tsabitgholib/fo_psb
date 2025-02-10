@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->Date('tanggal_transaksi');
+            $table->String('created_time');
+            $table->String('transaction_qr_id');
+            $table->String('va_number');
+            $table->String('transaksi');
+            $table->String('method');
+            $table->String('lunas');
+            $table->Double('for_ict');
             $table->timestamps();
         });
     }

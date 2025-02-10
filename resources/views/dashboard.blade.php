@@ -97,11 +97,34 @@
                         </button>
                     </div>
 
-                    <button
-                        type="submit"
-                        class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                        Login
+            <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
+            @csrf
+                <div>
+                    <label for="no_hp" class="block text-sm font-medium text-gray-700">Nomor HP</label>
+                    <input type="text" id="no_hp" name="no_hp" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="relative">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <!-- Icon untuk toggle visibility -->
+                    <button type="button" id="togglePassword"
+                        class="absolute inset-y-0 right-0 pr-4 top-6  flex items-center text-gray-500">
+                        <!-- Heroicon Eye -->
+                        <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <!-- Heroicon Eye-Slash (Hidden by Default) -->
+                        <svg id="eyeSlashIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a10.025 10.025 0 011.51-2.978m2.554-2.554A9.975 9.975 0 0112 5c4.477 0 8.268 2.943 9.542 7a10.026 10.026 0 01-1.005 1.91M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3l18 18" />
+                        </svg>
                     </button>
                 </form>
 
@@ -223,54 +246,51 @@
                         />
                     </div>
 
-                    <button
-                        type="button"
-                        id="daftar-button"
-                        class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                        Daftar
-                    </button>
-                    <!-- QRIS Modal -->
-                    <div
-                        id="qris-modal"
-                        class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
-                    >
-                        <div
-                            class="bg-white rounded-lg p-6 w-80 text-center -mt-40 max-h-96"
-                        >
-                            <h2 class="text-lg font-bold text-gray-800 mb-4">
-                                Pembayaran QRIS
-                            </h2>
-                            <img
-                                src="{{ asset('assets/img/qris.png') }}"
-                                alt="QRIS Code"
-                                class="mx-auto rounded-lg border border-gray-300 h-56"
-                            />
-                            <p class="text-gray-600 text-base mt-4">
-                                Silakan scan QRIS untuk melanjutkan proses
-                                pendaftaran.
-                            </p>
-                            <div
-                                class="flex items-center justify-center space-x-2 mt-2"
-                            >
-                                <button
-                                    type="button"
-                                    id="close-modal"
-                                    class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
-                                >
-                                    Tutup
-                                </button>
-                                <button
-                                    type="submit"
-                                    id="lanjutkan-button"
-                                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                >
-                                    Lanjutkan
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <div>
+                    <label for="no_hp" class="block text-sm font-medium text-gray-700">Nomor HP</label>
+                    <input type="tel" id="no_hp" name="no_hp" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sekolah" class="block text-sm font-medium text-gray-700">Pilihan Sekolah</label>
+                    <select id="sekolah" name="sekolah" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="SMP">SMP</option>
+                        <option value="SMA">SMA</option>
+                        <option value="SMK">SMK</option>
+                    </select>
+                </div>
+                {{-- <div>
+                    <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Pilihan Program</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="Laki-laki">Reguler</option>
+                        <option value="Perempuan">Unggulan</option>
+                    </select>
+                </div> --}}
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <button type="submit" id="daftar-button"
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Daftar
+                </button>
+            </form>
 
                 <p class="text-center text-sm text-gray-500 mt-4">
                     Sudah punya akun?
@@ -334,10 +354,18 @@
                 qrisModal.classList.remove("hidden"); // Tampilkan modal
             });
 
-            // Tutup modal saat tombol "Tutup" diklik
-            closeModal.addEventListener("click", () => {
-                qrisModal.classList.add("hidden"); // Sembunyikan modal
-            });
+        // Tutup modal saat tombol "Tutup" diklik
+        closeModal.addEventListener('click', () => {
+            qrisModal.classList.add('hidden'); // Sembunyikan modal
+        });
+
+        // Submit form saat tombol "Lanjutkan" diklik
+        lanjutkanButton.addEventListener('click', () => {
+            registerFormElement.submit(); // Submit form
+        });
+    </script>
+
+</body>
 
             // Submit form saat tombol "Lanjutkan" diklik
             lanjutkanButton.addEventListener("click", () => {

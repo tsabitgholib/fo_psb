@@ -16,8 +16,12 @@ return new class extends Migration
             $table->string('nama_siswa');
             $table->string('nama_orang_tua');
             $table->string('no_hp');
-            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
-            $table->enum('sekolah', ['SMP', 'SMA', 'SMK']);
+            $table->String('jenis_kelamin');
+            $table->String('sekolah');
+            $table->String('tagihan');
+            $table->String('lunas');
+            $table->String('created_time');
+            $table->String('transaction_qr_id');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

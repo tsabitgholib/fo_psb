@@ -24,6 +24,10 @@ class User extends Authenticatable
         'jenis_kelamin',
         'sekolah',
         'password',
+        'tagihan',
+        'created_time',
+        'lunas',
+        'va_number'
     ];
 
     
