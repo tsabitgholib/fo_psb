@@ -36,7 +36,6 @@
     <!-- Form dikirimkan ke route pendaftran.store dengan method POST dan mendukung file upload -->
     <form id="registration-form" action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
       @csrf
-
       <!-- Data Siswa -->
       <section>
         <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Data Siswa</h2>
