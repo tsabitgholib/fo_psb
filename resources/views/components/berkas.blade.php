@@ -22,18 +22,26 @@
         </a>
         <h1 class="text-lg font-semibold text-gray-800 text-center mb-4">Unggah Berkas</h1>
 
-        <form id="uploadForm" action="/berkas/uploadBerkas" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <form id="uploadForm" action="/berkas/uploadBerkas" method="POST" enctype="multipart/form-data"
+            class="space-y-4">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div id="fileInputsContainer" class="space-y-4">
                 <div class="file-input-group flex items-center gap-2">
                     <select name="name[]" class="p-2 border rounded w-1/3">
+                        <option value="AKTA">Akta Kelahiran</option>
                         <option value="KK">Kartu Keluarga (KK)</option>
                         <option value="Ijazah">Ijazah</option>
+                        <option value="IJAZAH">Ijazah/Surat Keterangan Lulus</option>
                         <option value="SKHUN">SKHUN</option>
                         <option value="Sertifikat">Sertifikat</option>
+                        <option value="FOTO">Pas Foto Terbaru 3x4</option>
+                        <option value="RAPORT">Raport atau Nilai Ujian Semester Terakhir</option>
+                        <option value="SERTIFIKAT">Sertifikat Piagam</option>
+                        <option value="DOKUMENLAIN">Dokumen Pendukung Lainnya (Jika Ada)</option>
                     </select>
-                    <input type="file" name="berkas[]" accept="image/jpg,image/jpeg,image/png" required class="p-2 border rounded w-2/3">
+                    <input type="file" name="berkas[]" accept="image/jpg,image/jpeg,image/png" required
+                        class="p-2 border rounded w-2/3">
                     <button type="button" class="deleteFileInput text-red-500 hover:text-red-700">
                         🗑️
                     </button>
@@ -54,7 +62,7 @@
     @include('components.navbar')
 
     <script>
-        document.getElementById("addFileInput").addEventListener("click", function () {
+        document.getElementById("addFileInput").addEventListener("click", function() {
             let container = document.getElementById("fileInputsContainer");
             let fileInputs = container.getElementsByClassName("file-input-group");
 
@@ -112,7 +120,7 @@
 
         addDeleteEventListeners();
 
-        document.getElementById("uploadForm").addEventListener("submit", function (event) {
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
             event.preventDefault();
             let formData = new FormData(this);
             let uploadButton = document.getElementById("uploadButton");
@@ -125,43 +133,43 @@
             uploadButton.disabled = true;
 
             fetch("/berkas/uploadBerkas", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        Swal.fire({
+                            title: "Berhasil!",
+                            text: "Berkas berhasil diunggah.",
+                            icon: "success",
+                            confirmButtonText: "OK"
+                        }).then(() => {
+                            window.location.href = "/profile";
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Gagal!",
+                            text: data.error || "Terjadi kesalahan saat mengunggah.",
+                            icon: "error",
+                            confirmButtonText: "OK"
+                        });
+                    }
+                })
+                .catch(error => {
                     Swal.fire({
-                        title: "Berhasil!",
-                        text: "Berkas berhasil diunggah.",
-                        icon: "success",
-                        confirmButtonText: "OK"
-                    }).then(() => {
-                        window.location.href = "/profile";
-                    });
-                } else {
-                    Swal.fire({
-                        title: "Gagal!",
-                        text: data.error || "Terjadi kesalahan saat mengunggah.",
+                        title: "Error!",
+                        text: "Terjadi kesalahan, silakan coba lagi.",
                         icon: "error",
                         confirmButtonText: "OK"
                     });
-                }
-            })
-            .catch(error => {
-                Swal.fire({
-                    title: "Error!",
-                    text: "Terjadi kesalahan, silakan coba lagi.",
-                    icon: "error",
-                    confirmButtonText: "OK"
+                })
+                .finally(() => {
+                    // Sembunyikan loading
+                    buttonText.textContent = "Unggah Berkas";
+                    loadingSpinner.classList.add("hidden");
+                    uploadButton.disabled = false;
                 });
-            })
-            .finally(() => {
-                // Sembunyikan loading
-                buttonText.textContent = "Unggah Berkas";
-                loadingSpinner.classList.add("hidden");
-                uploadButton.disabled = false;
-            });
         });
     </script>
 </body>
