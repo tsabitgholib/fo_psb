@@ -28,14 +28,10 @@
             <div id="fileInputsContainer" class="space-y-4">
                 <div class="file-input-group flex items-center gap-2">
                     <select name="name[]" class="p-2 border rounded w-1/3">
-                        <option value="AKTA">Akta Kelahiran</option>
                         <option value="KK">Kartu Keluarga (KK)</option>
-                        <option value="IJAZAH">Ijazah/Surat Keterangan Lulus</option>
+                        <option value="Ijazah">Ijazah</option>
                         <option value="SKHUN">SKHUN</option>
-                        <option value="FOTO">Pas Foto Terbaru 3x4</option>
-                        <option value="RAPORT">Raport atau Nilai Ujian Semester Terakhir</option>
-                        <option value="SERTIFIKAT">Sertifikat Piagam</option>
-                        <option value="DOKUMENLAIN">Dokumen Pendukung Lainnya (Jika Ada)</option>
+                        <option value="Sertifikat">Sertifikat</option>
                     </select>
                     <input type="file" name="berkas[]" accept="image/jpg,image/jpeg,image/png" required class="p-2 border rounded w-2/3">
                     <button type="button" class="deleteFileInput text-red-500 hover:text-red-700">
@@ -76,14 +72,10 @@
             newInput.classList.add("file-input-group", "flex", "items-center", "gap-2");
             newInput.innerHTML = `
                 <select name="name[]" class="p-2 border rounded w-1/3">
-                    <option value="AKTA">Akta Kelahiran</option>
                     <option value="KK">Kartu Keluarga (KK)</option>
-                    <option value="IJAZAH">Ijazah/Surat Keterangan Lulus</option>
+                    <option value="Ijazah">Ijazah</option>
                     <option value="SKHUN">SKHUN</option>
-                    <option value="FOTO">Pas Foto Terbaru 3x4</option>
-                    <option value="RAPORT">Raport atau Nilai Ujian Semester Terakhir</option>
-                    <option value="SERTIFIKAT">Sertifikat Piagam</option>
-                    <option value="DOKUMENLAIN">Dokumen Pendukung Lainnya (Jika Ada)</option>
+                    <option value="Sertifikat">Sertifikat</option>
                 </select>
                 <input type="file" name="berkas[]" accept="image/jpg,image/jpeg,image/png" required class="p-2 border rounded w-2/3">
                 <button type="button" class="deleteFileInput text-red-500 hover:text-red-700">
