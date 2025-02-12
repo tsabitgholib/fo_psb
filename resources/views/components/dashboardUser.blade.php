@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen p-6">
+<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
     <div class="w-full sm:max-w-md bg-white shadow-lg rounded-lg overflow-hidden p-6 relative">
         <!-- Tombol Back -->
         <a href="/profile">

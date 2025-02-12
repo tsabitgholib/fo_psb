@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen p-6">
+<body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
   <div class="w-full sm:max-w-md bg-white shadow-lg rounded-lg overflow-hidden p-6 relative">
     <!-- Tombol Back -->
     <a href="/profile" class="flex gap-2 items-center text-gray-700 hover:text-blue-600 transition">
