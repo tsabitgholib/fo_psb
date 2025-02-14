@@ -13,8 +13,6 @@
             backgroundColor: bgColor,
             className: "custom-toast",
             stopOnFocus: true,
-
-
         }).showToast();
     </script>
     <style>
