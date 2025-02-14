@@ -145,7 +145,7 @@
                 <span class="text-blue-600 font-semibold">Isi Form</span>
             </div>
             <div class="flex-1 h-1 bg-gray-300 mx-2 relative">
-                <div class="absolute h-1 bg-blue-600 w-1/4"></div>
+                <div class="absolute h-1 bg-blue-600 w-3/4"></div>
             </div>
             <div class="flex items-center space-x-2">
                 <div
