@@ -10,8 +10,8 @@
 
 <body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
     {{-- @include('sweetalert::alert') --}}
-    
-    
+
+
     <x-toast message="{{ session('success') }}" type="success" />
     <x-toast message="{{ session('error') }}" type="error" />
     <x-toast message="{{ session('warning') }}" type="warning" />
@@ -170,11 +170,11 @@
                     </div>
                 </a>
                 <!--  -->
-                <div class="absolute right-4 top-4">
-                    <div
-                        class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
-                        ✓
-                    </div>
+                <div id="progressContainer" class="absolute right-4 top-4">
+                    <p
+                        class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        !
+                    </p>
                 </div>
             </div>
 
@@ -190,11 +190,11 @@
                     </div>
                 </a>
                 <!--  -->
-                <div class="absolute right-4 top-4">
-                    <div
-                        class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
-                        ✓
-                    </div>
+                <div id="berkasContainer" class="absolute right-4 top-4">
+                    <p
+                        class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        !
+                    </p>
                 </div>
             </div>
 
@@ -211,10 +211,10 @@
                 </a>
                 <!-- -->
                 <div class="absolute right-4 top-4">
-                    <div
+                    <p
                         class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
                         !
-                    </div>
+                    </p>
                 </div>
             </div>
 
@@ -254,5 +254,57 @@
     </div>
     @include('components.navbar')
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Panggil API untuk mendapatkan data pendaftaran berdasarkan user
+        fetch("{{ route('pendaftaran.index') }}")
+            .then(response => response.json())
+            .then(data => {
+                let container = document.getElementById("progressContainer");
+                container.innerHTML = "";
+                const pendaftaran = data.data;
+                if (pendaftaran.nisn) {
+                    container.innerHTML +=
+                        `<p
+                        class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        ✓
+                    </p>`;
+                } else {
+                    container.innerHTML +=
+                        `<p
+                        class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        !
+                    </p>`;
+                }
+            })
+            .catch(error => {
+                return
+            });
+        fetch("/berkas/getBerkasByUser")
+            .then(response => response.json())
+            .then(data => {
+                let container = document.getElementById("berkasContainer");
+                container.innerHTML = "";
+                const berkas = data.data;
+                if (berkas.length >= 1) {
+                    container.innerHTML +=
+                        `<p
+                        class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        ✓
+                    </p>`;
+                } else {
+                    container.innerHTML +=
+                        `<p
+                        class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
+                        !
+                    </p>`;
+                }
+            })
+            .catch(error => {
+                return
+            });
+    });
+</script>
 
 </html>

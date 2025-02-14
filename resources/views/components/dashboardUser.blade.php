@@ -167,7 +167,7 @@
         fetch("/berkas/getBerkasByUser")
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 
                 let container = document.getElementById("previewContainer");
                 container.innerHTML = "";
