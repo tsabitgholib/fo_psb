@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSS Toastify -->
     <title>Form Login dan Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 flex justify-center items-start min-h-screen pt-4">
+    {{-- @include('sweetalert::alert') --}}
+    
+    <x-toast message="{{ session('success') }}" type="success" />
+    <x-toast message="{{ session('error') }}" type="error" />
+    <x-toast message="{{ session('warning') }}" type="warning" />
     <div class="w-full sm:max-w-md bg-gray-50 min-h-screen shadow-md rounded-lg p-6 pb-44">
         <!-- Login Section -->
         <div id="login-form">
             <h2 class="text-xl font-bold text-center text-gray-800 mb-6">Form Login</h2>
 
             <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
-            @csrf
+                @csrf
                 <div>
                     <label for="no_hp" class="block text-sm font-medium text-gray-700">Nomor HP</label>
                     <input type="text" id="no_hp" name="no_hp" required
@@ -135,6 +141,7 @@
         </div>
     </div>
     @include('components.navbar')
+    <!-- JS Toastify -->
 
     <script>
         // Toggle between Login and Register forms

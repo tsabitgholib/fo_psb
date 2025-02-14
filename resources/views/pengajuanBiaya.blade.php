@@ -11,6 +11,14 @@
 <body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center sm:p-6 ">
     <div
         class="w-full sm:max-w-md bg-gray-50 pb-48 shadow-xl rounded-lg overflow-hidden p-4 sm:p-6 relative min-h-screen">
+        <!-- Tombol Back -->
+        <a href="/profile" class="flex gap-2 items-center text-gray-700 hover:text-blue-600 transition">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span class="font-semibold">Kembali</span>
+        </a>
         <!-- Header -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-bold text-blue-600">Pengajuan Biaya</h1>
@@ -69,8 +77,9 @@
             <div class="my-6">
                 <label for="wakaf" class="block text-gray-700 font-semibold mb-2">Swakelola biaya registrasi</label>
                 <input type="number" id="wakaf" placeholder="Masukkan nominal"
-                    class="w-full p-2 outline-none shadow border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                    <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2">Biaya registrasi yang sudah dibayarkan tidak bisa kembali</p>
+                    class="w-full p-2 outline-none  border  border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2">Biaya registrasi yang sudah dibayarkan
+                    tidak bisa kembali</p>
             </div>
 
             <!-- Form Bulanan -->
@@ -81,7 +90,7 @@
             <div class="mb-6">
                 <label for="bulanan" class="block text-gray-700 font-semibold mb-2">Swakelola biaya SPP</label>
                 <input type="number" id="bulanan" placeholder="Masukkan nominal bulanan"
-                    class="w-full p-2 outline-none shadow border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    class="w-full p-2 outline-none border  border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
             <button id="btn-bayar"
                 class="w-full py-3 bg-green-500 text-white font-semibold rounded-lg transition hover:bg-green-600">
@@ -102,7 +111,7 @@
             <div class="mb-6">
                 <label for="wakaf" class="block text-gray-700 font-semibold mb-2">Wakaf Perorangan</label>
                 <input type="number" id="wakaf" placeholder="Masukkan nominal"
-                    class="w-full p-2 outline-none border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    class="w-full p-2 outline-none border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 <p class="bg-blue-50 rounded-lg text-sm text-gray-600 p-2 mt-2">Wakaf perorang merupakan wakaf periodik,
                     jika nominal yang dimasukkan kurang dari nominal yang dianjurkan maka akan dinyatakan wakaf
                     permanent melalui uang</p>
@@ -116,7 +125,7 @@
             <div class="mb-6">
                 <label for="bulanan" class="block text-gray-700 font-semibold mb-2">Bulanan (SPP/Infaq)</label>
                 <input type="number" id="bulanan" placeholder="Masukkan nominal bulanan"
-                    class="w-full p-2 outline-none border border-green-50 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    class="w-full p-2 outline-none border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
 
             <!-- Tombol Bayar -->
@@ -134,11 +143,12 @@
             <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
             <img src="{{ asset('assets/img/frame.png') }}" alt="QRIS Code"
                 class="mx-auto rounded-lg border border-gray-300">
-                <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pengajuan biaya reguler.</p>
-                <button id="close-modal"
+            <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pengajuan biaya reguler.</p>
+            <button id="close-modal"
                 class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
 
-            <button id="cek-pembayaran" class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
+            <button id="cek-pembayaran"
+                class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
                 pembayaran</button>
         </div>
     </div>
@@ -147,20 +157,20 @@
         <div class="bg-white rounded-lg p-6 w-80 text-center">
             <h2 class="text-lg font-bold text-gray-800 mb-4">Pembayaran QRIS</h2>
             <img src="{{ asset('assets/img/frame.png') }}" alt="QRIS Code"
-            class="mx-auto rounded-lg border border-gray-300">
+                class="mx-auto rounded-lg border border-gray-300">
             <p class="text-gray-600 mt-4">Silakan scan QRIS untuk melanjutkan proses pengajuan biaya unggulan.</p>
             <button id="close-modalUnggulan"
-            class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
-            
+                class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Tutup</button>
+
             <button id="cek-pembayaranUnggulan"
-            class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
-            pembayaran</button>
+                class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">cek
+                pembayaran</button>
         </div>
     </div>
     @include('components.navbar')
-    
-    
-    
+
+
+
     <script>
         // Script untuk mengatur logika tampilan
         const btnReguler = document.getElementById('btn-reguler');

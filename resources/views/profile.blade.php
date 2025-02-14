@@ -9,6 +9,12 @@
 </head>
 
 <body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
+    {{-- @include('sweetalert::alert') --}}
+    
+    
+    <x-toast message="{{ session('success') }}" type="success" />
+    <x-toast message="{{ session('error') }}" type="error" />
+    <x-toast message="{{ session('warning') }}" type="warning" />
     <!-- -->
     <div class="w-full sm:max-w-md bg-white shadow-xl rounded-lg overflow-hidden p-4 sm:p-6 relative">
         <div class="flex items-center gap-2 mb-4">
