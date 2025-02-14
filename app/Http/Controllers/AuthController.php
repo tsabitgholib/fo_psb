@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -29,9 +30,9 @@ class AuthController extends Controller
             if (User::where('no_hp', $no_hp)->exists()) {
                 return back()->with('error', 'Nomor HP sudah terdaftar.');
             }
-            $vaNumber = '777777' . str_pad($no_hp, 10, '0', STR_PAD_LEFT);   
-                       
-    
+            $vaNumber = '777777' . str_pad($no_hp, 10, '0', STR_PAD_LEFT);
+
+
             $user = User::create([
                 'nama_siswa' => $validatedData['nama_siswa'],
                 'nama_orang_tua' => $validatedData['nama_orang_tua'],
@@ -44,34 +45,37 @@ class AuthController extends Controller
                 'va_number' => (int) $vaNumber,
                 'lunas' => false
             ]);
-    
+
             return redirect()->route('qris.generate', ['createdTime' => $user->created_time])
-                             ->with('success', 'Registrasi berhasil!');
+                ->with('success', 'Registrasi berhasil!');
         } catch (\Exception $e) {
             Log::error('Registrasi gagal: ' . $e->getMessage());
-    
+
             return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
-    
+
     public function login(Request $request)
     {
         $request->validate([
             'no_hp' => 'required|numeric',
             'password' => 'required|min:6',
         ]);
+
         $user = User::where('no_hp', $request->no_hp)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             if ($user->lunas) {
                 Auth::login($user);
+                Alert::success('Berhasil', 'Login berhasil!');
                 return redirect('/profile');
             } else {
-                return redirect()->back()->withErrors(['lunas' => 'Akun Anda belum lunas.']);
+                Alert::warning('Peringatan', 'Akun Anda belum lunas.');
+                return redirect()->back();
             }
         } else {
-            return redirect()->back()->withErrors(['login' => 'Nomor HP atau password salah.']);
+            Alert::error('Gagal', 'Nomor HP atau password salah.');
+            return redirect()->back();
         }
     }
-
 }

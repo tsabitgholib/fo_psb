@@ -9,12 +9,8 @@
 </head>
 
 <body class="bg-gradient-to-b from-blue-50 to-gray-100 flex justify-center items-center min-h-screen sm:p-6">
-    {{-- @include('sweetalert::alert') --}}
-    
-    
-    <x-toast message="{{ session('success') }}" type="success" />
-    <x-toast message="{{ session('error') }}" type="error" />
-    <x-toast message="{{ session('warning') }}" type="warning" />
+    @include('sweetalert::alert')
+
     <!-- -->
     <div class="w-full sm:max-w-md bg-white shadow-xl rounded-lg overflow-hidden p-4 sm:p-6 relative">
         <div class="flex items-center gap-2 mb-4">
@@ -145,7 +141,7 @@
                 <span class="text-blue-600 font-semibold">Isi Form</span>
             </div>
             <div class="flex-1 h-1 bg-gray-300 mx-2 relative">
-                <div class="absolute h-1 bg-blue-600 w-3/4"></div>
+                <div class="absolute h-1 bg-blue-600 w-1/4"></div>
             </div>
             <div class="flex items-center space-x-2">
                 <div
